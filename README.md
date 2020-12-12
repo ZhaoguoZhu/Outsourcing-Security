@@ -50,7 +50,26 @@ df = pd.read_excel(<filename>)
 
 ## Dendrogram Visulization
 
-Before this section, we highly recommend that you watch the following video from youtube: https://www.youtube.com/watch?v=ijUMKMC4f9I. It tells you how to read the dendrogram, which in our case the distance measurement is Euclidean Distance. You can choose your own distance threshold based on how many cluster you want to have. This distance threshold number will be used for the next step.
+Before this section, we highly recommend that you watch the following video from youtube: https://www.youtube.com/watch?v=ijUMKMC4f9I. It tells you how to read the dendrogram, which in our case the distance measurement is Euclidean Distance. Compile the Dendrogram_Visualization.py and you will see how the cluster can be if you choose difference distance threshold (the number on the left). You can choose your own distance threshold based on how many cluster you want to have. This distance threshold number will be used for the next step.
 
 
-## 
+## Clustering and Topic Modeling
+
+Edit Clustering_Topic_Model.py and get to line:
+
+```
+clustering_model = AgglomerativeClustering(n_clusters=None, affinity='euclidean', linkage='ward', distance_threshold=3)
+```
+
+Change the distance threshold to the number you like. Then you are all set. Compile file Clustering_Topic_Model.py. What you will get are the clusters and the size of those clusters which represent how many number of sentences are in those cluster. Each Cluster will have 3 Topic name that represent what this cluster is mostly likely talking about.
+
+To see the sentences within the cluster, please type in the shell:
+
+```
+clustered_sentences[<# of the cluster minus 1>]
+```
+
+For instance, if you want to see content of cluster 1, what you actually need to type is clustered_sentences[0]
+
+
+
