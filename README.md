@@ -8,6 +8,10 @@ Original project idea came from Dr. Kaija Schilde and the process was supervized
 
 The contents of the code orginates from the UKPLab, please refer to our citation and links in the files and below.
 
+**Original Code from UKPLab**
+
+https://github.com/UKPLab/sentence-transformers
+
 
 
 
