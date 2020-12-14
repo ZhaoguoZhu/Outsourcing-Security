@@ -1,6 +1,6 @@
 # Sentence Clustering: Clustering DOD documents using Sentence Transformers / Hierarchical Agglomerative Algorithm / LDA
 
-This repository provides an easying method of clustering sentences based on semantic similarity. Sentences are embedded using transformers, clustered by hierarchical agglomerative algorithm and eventually each cluster is given name based on repeat of important words by LDA. To apply our program, you will be only using file in the 'src' folder. Other files in the repository are for testing and research purposes. 
+This repository provides an easying method of clustering sentences based on semantic similarity. Sentences are embedded using transformers, clustered by hierarchical agglomerative algorithm and eventually each cluster is given name based on repeat of important words by LDA. To apply our program, you will be only using file in the 'src' folder. Other files in the repository are for testing and research purposes.
 
 
 Original project idea came from Dr. Kaija Schilde and the process was supervized under Professor Dharmesh Tarapore from the Boston University Spark Engineering Community. @Professor Tarapore: for grading purposes, please also only look at the files at the 'src' folder and follow the guideline below.
@@ -19,42 +19,76 @@ https://github.com/UKPLab/sentence-transformers
 To properly run the code we provide, please Install the following libraries with pip.
 
 ```
-pip install -U sentence-transformers
+pip install sentence-transformers scikit-learn scipy numpy matplotlib ipython pandas nltk
 ```
 
 ```
-pip install -U scikit-learn
-```
-
-```
-python -m pip install --user numpy scipy matplotlib ipython jupyter pandas sympy nose
-```
-
-```
-pip install ntlk
-```
-```
-python install pandas
+pip install xlrd==1.2.0
 ```
 
 
-## Getting Started
+## Quick Start
+Run python commands below for a quick demo of the clustering and topic modeling on a 2006 FOIA logs from DOD:
 
-The input of the file has to be either csv or xlsx with a column name "Description." Under the "Description" should english sentences for each roll. You will need to go to both Dendrogram_Visualization.py and Clustering_Topic_Model.py and modify the pandas file read line to the format you want.
+```
+from CTModel import CTModel
+x=CTModel('2006.xlsx')
+x.run(True)
+x.getLabels()
+```
 
+Run python commands below to see demo of contract data reader:
+
+```
+from Contracts import Contracts
+y=Contracts('web2005.txt')
+y.run(True)
+y.getSortedLabels[:10]
+```
+
+## CTModel Initialization
+We will start with clustering and topic modeling for FOIA requests (CTModel). Input file has to be either csv or xlsx with request descriptions in a column named "Description." The "Description" column should contain English sentences for each row.
+
+```
+from CTModel import CTModel
+
+```
 **For CSV**
 ```
-df = pd.read_csv(<filename>)
+x=CTModel('Foia.csv', True)
 ```
 
 **For XLSX**
 ```
-df = pd.read_excel(<filename>)
+x=CTModel('Foia.xlsx')
 ```
 
-## Dendrogram Visulization
+## CTModel Run
+After initializing the model with an input file, we can start it with run().
+```
+x.run()
+```
 
-Before this section, we highly recommend that you watch the following video from youtube: https://www.youtube.com/watch?v=ijUMKMC4f9I. It tells you how to read the dendrogram, which in our case the distance measurement is Euclidean Distance. Compile the Dendrogram_Visualization.py and you will see how the cluster can be if you choose difference distance threshold (the number on the left). You can choose your own distance threshold based on how many cluster you want to have. This distance threshold number will be used for the next step.
+**To run with logs**
+```
+x.run(True)
+```
+
+## CTModel Output
+After a successful run, we get the output of the clustering and topic modeling using two methods:
+
+**Get Clusters**
+```
+x.getClusters()
+```
+**Get LDA Labels**
+```
+x.getLabels()
+```
+
+## CTModel Dendrogram Visulization
+
+Before this section, we highly recommend that you watch the following video from youtube: https://www.youtube.com/watch?v=ijUMKMC4f9I. It tells you how to read the dendrogram, which in our case the distance measurement is Euclidean Distance. After a successful CTModel run(), execute function saveDendrogram(<filename>) - and you will see how the cluster can be if you choose difference distance threshold (the number on the left). You can choose your own distance threshold based on how many cluster you want to have. This distance threshold number will be used for the next step.
 
 
 ## Clustering and Topic Modeling
@@ -74,6 +108,3 @@ clustered_sentences[<# of the cluster minus 1>]
 ```
 
 For instance, if you want to see content of cluster 1, what you actually need to type is clustered_sentences[0]
-
-
-
