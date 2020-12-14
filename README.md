@@ -1,6 +1,6 @@
 # Sentence Clustering: Clustering DOD documents using Sentence Transformers / Hierarchical Agglomerative Algorithm / LDA
 
-This repository provides an easying method of clustering sentences based on semantic similarity. Sentences are embedded using transformers, clustered by hierarchical agglomerative algorithm and eventually each cluster is given name based on repeat of important words by LDA. To apply our program, you will be only using file in the 'src' folder. Other files in the repository are for testing and research purposes.
+This repository provides an easying method of clustering sentences based on semantic similarity. Sentences are embedded using transformers, clustered by hierarchical agglomerative algorithm and eventually each cluster is given name based on repeat of important words by LDA. To apply our program, you will be only using file in the 'src' folder. Other files in the repository are for testing and research purposes. 
 
 
 Original project idea came from Dr. Kaija Schilde and the process was supervized under Professor Dharmesh Tarapore from the Boston University Spark Engineering Community. @Professor Tarapore: for grading purposes, please also only look at the files at the 'src' folder and follow the guideline below.
@@ -40,7 +40,7 @@ python install pandas
 
 ## Getting Started
 
-The input of the file has to be either csv or xlsx with a column name "Description." You will need to go to both Dendrogram_Visualization.py and Clustering_Topic_Model.py and modify the pandas file read line to the format you want.
+The input of the file has to be either csv or xlsx with a column name "Description." Under the "Description" should english sentences for each roll. You will need to go to both Dendrogram_Visualization.py and Clustering_Topic_Model.py and modify the pandas file read line to the format you want.
 
 **For CSV**
 ```
