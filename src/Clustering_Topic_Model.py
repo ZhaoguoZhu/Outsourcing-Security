@@ -1,5 +1,4 @@
-#Author: Zhaoguo Zhu
-#Partner: Piotr Nojszewski
+#Team Members: Zhaoguo Zhu/Piotr Nojeszewski
 #Clinet: Dr. Kaija Schilde
 #Boston University Spark Engineering Project
 #Outsourcing Security
